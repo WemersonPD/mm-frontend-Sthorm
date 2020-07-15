@@ -1,1 +1,86 @@
-<p>signup works!</p>
+<h4 class="text-center">Login</h4>
+
+<!-- [FormFroup]="loginForm" é para mostrar quem vai controlar meu formulário. -->
+<form
+  [formGroup]="loginForm"
+  class="form mt-4"
+
+>
+  <div class="form-group">
+  <!-- Utiliando o nome que colocamos no formBuilder e sua altentucação. -->
+    <input
+      formControlName="email"
+      class="form-control"
+      placeholder="Email"
+      autofocus
+    >
+
+    <!-- Mensagem de erro componentiado. -->
+    <app-vmenssage
+    *ngIf="loginForm.get('email').errors?.required && loginForm.get('email').dirty"
+      text="Por favor, informe seu email"
+    >
+    </app-vmenssage>
+
+  </div>
+  <div class="form-group">
+    <!-- Utiliando o nome que colocamos no formBuilder e sua altentucação. -->
+    <input
+      formControlName="userName"
+      class="form-control"
+      placeholder="User name"
+
+    >
+
+    <!-- Mensagem de erro componentiado. -->
+    <app-vmenssage
+    *ngIf="loginForm.get('userName').errors?.required && loginForm.get('userName').dirty"
+      text="User name is required"
+    >
+    </app-vmenssage>
+
+
+  </div>
+  <div class="form-group">
+    <input
+      formControlName="passwordConfirmation"
+      type="password"
+      class="form-control"
+      placeholder="Password"
+    >
+    <app-vmenssage
+      *ngIf="loginForm.get('passwordConfirmation').errors?.required
+         &&
+      loginForm.get('passwordConfirmation').dirty"
+      text="Seu "
+    >
+    </app-vmenssage>
+  </div>
+  <div class="form-group">
+    <input
+      formControlName="password"
+      type="password"
+      class="form-control"
+      placeholder="Password"
+    >
+    <app-vmenssage
+      *ngIf="loginForm.get('password').errors?.required && loginForm.get('password').dirty"
+      text="Password is required"
+    >
+    </app-vmenssage>
+  </div>
+
+  <!-- Caso tenha algum erro no FormGroup, o botão ficará desabilitado. -->
+  <button
+    [disabled]="loginForm.invalid"
+    type="submit"
+    class="btn btn-primary btn-block"
+    >
+    Login
+  </button>
+
+</form>
+
+<p>
+  Not a user? <a>Registre now</a>
+</p>

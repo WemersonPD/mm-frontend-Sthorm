@@ -1,15 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
+
 import { SignupComponent } from './signup.component';
+import { VmenssageModule } from '../shareds/directives/vmenssage/vmenssage.module';
 
 
 
 @NgModule({
   declarations: [
-    SignupComponent
+    SignupComponent,
+
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule,
+    VmenssageModule
   ]
 })
 export class SignupModule { }
