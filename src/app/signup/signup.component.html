@@ -1,86 +1,96 @@
-<h4 class="text-center">Login</h4>
+<h4 class="text-center">Crie sua conta</h4>
 
 <!-- [FormFroup]="loginForm" é para mostrar quem vai controlar meu formulário. -->
-<form
-  [formGroup]="loginForm"
-  class="form mt-4"
+<div class="container">
+  <form
+    [formGroup]="signupForm"
+    class="form mt-4 w-50 h-90 mx-auto "
 
->
-  <div class="form-group">
-  <!-- Utiliando o nome que colocamos no formBuilder e sua altentucação. -->
-    <input
-      formControlName="email"
-      class="form-control"
-      placeholder="Email"
-      autofocus
-    >
-
-    <!-- Mensagem de erro componentiado. -->
-    <app-vmenssage
-    *ngIf="loginForm.get('email').errors?.required && loginForm.get('email').dirty"
-      text="Por favor, informe seu email"
-    >
-    </app-vmenssage>
-
-  </div>
-  <div class="form-group">
+  >
+    <div class="form-group">
     <!-- Utiliando o nome que colocamos no formBuilder e sua altentucação. -->
-    <input
-      formControlName="userName"
-      class="form-control"
-      placeholder="User name"
+      <input
+        formControlName="email"
+        class="form-control"
+        placeholder="Email"
+        autofocus
+      >
 
-    >
+      <!-- Mensagem de erro componentiado. -->
+      <app-vmenssage
+      *ngIf="signupForm.get('email').errors?.required && signupForm.get('email').dirty"
+        text="Por favor, informe seu email"
+      >
+      </app-vmenssage>
 
-    <!-- Mensagem de erro componentiado. -->
-    <app-vmenssage
-    *ngIf="loginForm.get('userName').errors?.required && loginForm.get('userName').dirty"
-      text="User name is required"
-    >
-    </app-vmenssage>
+    </div>
+    <div class="form-group">
+      <!-- Utiliando o nome que colocamos no formBuilder e sua altentucação. -->
+      <input
+        formControlName="userName"
+        class="form-control"
+        placeholder="Nome completo"
+
+      >
+
+      <!-- Mensagem de erro componentiado. -->
+      <app-vmenssage
+      *ngIf="signupForm.get('userName').errors?.required && signupForm.get('userName').dirty"
+        text="Por favor, informe seu nome"
+      >
+      </app-vmenssage>
 
 
-  </div>
-  <div class="form-group">
-    <input
-      formControlName="passwordConfirmation"
-      type="password"
-      class="form-control"
-      placeholder="Password"
-    >
-    <app-vmenssage
-      *ngIf="loginForm.get('passwordConfirmation').errors?.required
-         &&
-      loginForm.get('passwordConfirmation').dirty"
-      text="Seu "
-    >
-    </app-vmenssage>
-  </div>
-  <div class="form-group">
-    <input
-      formControlName="password"
-      type="password"
-      class="form-control"
-      placeholder="Password"
-    >
-    <app-vmenssage
-      *ngIf="loginForm.get('password').errors?.required && loginForm.get('password').dirty"
-      text="Password is required"
-    >
-    </app-vmenssage>
-  </div>
+    </div>
 
-  <!-- Caso tenha algum erro no FormGroup, o botão ficará desabilitado. -->
-  <button
-    [disabled]="loginForm.invalid"
-    type="submit"
-    class="btn btn-primary btn-block"
-    >
-    Login
-  </button>
+    <div class="form-group">
+      <input
+        formControlName="password"
+        type="password"
+        class="form-control"
+        placeholder="Senha"
+      >
+      <app-vmenssage
+        *ngIf="signupForm.get('password').errors?.required && signupForm.get('password').dirty"
+        text="Password is required"
+      >
+      </app-vmenssage>
+      <app-vmenssage
+        *ngIf="signupForm.get('password').errors?.minlength && signupForm.get('password').dirty"
+        text="Mínimo de 6 caracteres"
+      >
+      </app-vmenssage>
+    </div>
 
-</form>
+    <div class="form-group">
+      <input
+        formControlName="confirmPassword"
+        type="password"
+        class="form-control"
+        placeholder="Confirmação de senha"
+      >
+      <app-vmenssage
+        *ngIf="signupForm.get('confirmPassword').errors?.confirmPasswordValidator
+           &&
+          signupForm.get('confirmPassword').dirty"
+        text="A senha e confirmação de senha não batem"
+      >
+      </app-vmenssage>
+    </div>
 
-<p>
-  Not a user? <a>Registre now</a>
-</p>
+    <!-- Caso tenha algum erro no FormGroup, o botão ficará desabilitado. -->
+    <button
+      [disabled]="signupForm.invalid"
+      type="submit"
+      class="btn btn-primary btn-block"
+      >
+      signup
+    </button>
+
+  </form>
+
+  <p class="text-center pt-3">
+    Not a user? <a>Registre now</a>
+  </p>
+
+</div>

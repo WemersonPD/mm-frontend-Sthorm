@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ConfirmPasswordValidator } from './confirm-password.validator';
 
 @Component({
   selector: 'app-signup',
@@ -8,7 +9,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent implements OnInit {
-  public loginForm: FormGroup;
+  public signupForm: FormGroup;
+  public passWord: AbstractControl;
+  public passwordConfirmation: AbstractControl;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -16,22 +19,19 @@ export class SignupComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.loginForm = this.formBuilder.group({
+    this.signupForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       userName: ['', [Validators.required]],
       password: ['', [Validators.required, Validators.minLength(6)]],
-      passwordConfirmation: ['', [Validators.required, Validators.minLength(6),]],
+      confirmPassword: ['', [Validators.required, Validators.minLength(6)]],
+    },
+    {
+      validator: ConfirmPasswordValidator("password", "confirmPassword")
     })
-  }
 
-  checkPassword() {
-    const password = this.loginForm.get('password').value;
-    const passwordConfirmation = this.loginForm.get('passwordConfirmation').value;
-    if(password == passwordConfirmation) {
-      return {'passwordConfirm': true};
-    } else {
-      return null;
-    }
 
   }
+
+
+
 }
