@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common';
 import { ProductsComponent } from './products/products.component';
 import { ProductListComponent } from './product-list.component';
 import { FilterByName } from './filterByName.pipe';
-import { VmenssageModule } from './../../shareds/directives/vmenssage/vmenssage.module';
+import { VmenssageModule } from './../../shareds/components/vmenssage/vmenssage.module';
 import { ProductModule } from './../product/product.module';
 import { SearchComponent } from './search/search.component';
 
