@@ -6,7 +6,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./vmenssage.component.scss']
 })
 export class VmenssageComponent implements OnInit {
-  @Input() text: string = '';
+  @Input() text = '';
   constructor() { }
 
   ngOnInit(): void {

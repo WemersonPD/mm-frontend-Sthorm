@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { SignupModule } from './signup/signup.module';
-import { VmenssageModule } from './shareds/directives/vmenssage/vmenssage.module';
+import { VmenssageModule } from './shareds/components/vmenssage/vmenssage.module';
 import { ProductsModule } from './products/products.module';
 import { CardModule } from './shareds/components/card/card.module';
 
