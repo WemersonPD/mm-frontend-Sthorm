@@ -1,0 +1,13 @@
+<app-search
+  (typing)="filter = $event"
+></app-search>
+<app-products
+  [products]="products | filterByName: filter"
+>
+</app-products>
+
+
+
+
+
+

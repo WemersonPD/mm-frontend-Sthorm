@@ -2,15 +2,18 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { ProductsComponent } from './products.component';
+import { ProductComponent } from './product.component';
 
 
 
 @NgModule({
-  declarations: [ProductsComponent],
+  declarations: [ProductComponent],
   imports: [
     CommonModule,
     HttpClientModule
+  ],
+  exports: [
+    ProductComponent
   ]
 })
-export class ProductsModule { }
+export class ProductModule { }

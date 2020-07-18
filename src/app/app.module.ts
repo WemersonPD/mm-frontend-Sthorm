@@ -2,12 +2,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
 
 import { SignupModule } from './signup/signup.module';
 import { VmenssageModule } from './shareds/directives/vmenssage/vmenssage.module';
-import { AuthModule } from './core/auth/auth.module';
-import { ProductsModule } from './product/products.module';
+import { ProductsModule } from './products/products.module';
+import { CardModule } from './shareds/components/card/card.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,9 +15,8 @@ import { ProductsModule } from './product/products.module';
     AppRoutingModule,
     SignupModule,
     VmenssageModule,
-    AuthModule,
-    HttpClientModule,
-    ProductsModule
+    ProductsModule,
+    CardModule
   ],
   providers: [],
   bootstrap: [AppComponent],

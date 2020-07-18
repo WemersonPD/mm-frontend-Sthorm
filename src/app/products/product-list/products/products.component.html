@@ -1,0 +1,23 @@
+<app-vmenssage
+  *ngIf="!products.length"
+  class="d-flex justify-content-center"
+  text="Desculpe, nenhum produto encontrado."
+></app-vmenssage>
+
+<ol class="list-unstyled">
+  <li *ngFor="let cols of rows" class="row no-gutters">
+    <div *ngFor="let product of cols" class="col-4">
+      <app-card>
+        <app-product
+          [urlImage]="product.urlImage"
+          [title]="product.name"
+          class="card-img-top"
+        ></app-product>
+        <div class="text-center p-1">
+          <i class="fa fa-money fa-lg mr-2 text-success" aria-hidden="true"></i
+          >{{ product.price }}
+        </div>
+      </app-card>
+    </div>
+  </li>
+</ol>
