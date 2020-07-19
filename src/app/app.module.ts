@@ -1,3 +1,4 @@
+import { HeaderModule } from './core/header/header.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
@@ -7,13 +8,14 @@ import { SignupModule } from './signup/signup.module';
 import { ProductsModule } from './products/products.module';
 import { CardModule } from './shareds/components/card/card.module';
 
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     SignupModule,
-
+    HeaderModule,
     ProductsModule,
     CardModule
   ],

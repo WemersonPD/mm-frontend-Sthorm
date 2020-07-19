@@ -1,3 +1,4 @@
+
 import { DarkOnHoverModule } from './../../shareds/directives/dark-on-hover/dark-on-hover.module';
 import { CardModule } from './../../shareds/components/card/card.module';
 import { NgModule } from '@angular/core';
@@ -18,7 +19,8 @@ import { SearchComponent } from './search/search.component';
     ProductModule,
     VmenssageModule,
     CardModule,
-    DarkOnHoverModule
+    DarkOnHoverModule,
+
   ]
 })
 export class ProductListModule { }
