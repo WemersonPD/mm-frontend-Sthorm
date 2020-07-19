@@ -6,7 +6,7 @@
 
 <ol class="list-unstyled">
   <li *ngFor="let cols of rows" class="row no-gutters">
-    <div *ngFor="let product of cols" class="col-4" appDarkOnHover>
+    <div *ngFor="let product of cols" class="col-4 mt-5" appDarkOnHover>
       <app-card>
         <app-product
           [urlImage]="product.urlImage"
@@ -14,8 +14,7 @@
           class="card-img-top"
         ></app-product>
         <div class="text-center p-1">
-          <i class="fa fa-money fa-lg mr-2 text-success" aria-hidden="true"></i
-          >{{ product.price }}
+          <i class="fa fa-money fa-2x mr-2 text-success" aria-hidden="true"> {{ product.price }}</i>
         </div>
       </app-card>
     </div>

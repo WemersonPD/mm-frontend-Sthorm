@@ -9,7 +9,10 @@ export class FilterByName implements PipeTransform {
       .toLowerCase();
     if (nameQuery) {
       return products
-        .filter(product => product.name.includes(nameQuery));
+        .filter(product => product.name
+          .trim()
+          .toLowerCase()
+          .includes(nameQuery));
     } else {
       return products;
     }

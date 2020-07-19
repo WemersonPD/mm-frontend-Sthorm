@@ -1,17 +1,20 @@
-import { Directive, ElementRef, HostListener } from '@angular/core';
+import { Directive, ElementRef, HostListener, Renderer2 } from '@angular/core';
 
 @Directive({
   selector: '[appDarkOnHover]',
 })
 export class DarkOnHoverDirective {
-  constructor(private el: ElementRef) {}
+  constructor(
+    private el: ElementRef,
+    private render: Renderer2
+  ) { }
   @HostListener('mouseover')
   darkOn(): void {
-    console.log('darkOn');
+    this.render.setStyle(this.el.nativeElement, 'filter', 'brightness(50%)');
   }
 
   @HostListener('mouseleave')
   darkOff(): void {
-    console.log('darkOff');
+    this.render.setStyle(this.el.nativeElement, 'filter', 'brightness(100%)');
   }
 }
