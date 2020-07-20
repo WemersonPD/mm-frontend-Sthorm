@@ -1,3 +1,4 @@
+import { FilterByType } from './filterByType.pipe';
 
 import { DarkOnHoverModule } from './../../shareds/directives/dark-on-hover/dark-on-hover.module';
 import { CardModule } from './../../shareds/components/card/card.module';
@@ -13,7 +14,13 @@ import { SearchComponent } from './search/search.component';
 
 
 @NgModule({
-  declarations: [ProductListComponent, ProductsComponent, FilterByName, SearchComponent],
+  declarations: [
+    ProductListComponent,
+    ProductsComponent,
+    FilterByName,
+    SearchComponent,
+    FilterByType
+  ],
   imports: [
     CommonModule,
     ProductModule,

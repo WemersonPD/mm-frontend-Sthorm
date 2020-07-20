@@ -2,9 +2,14 @@
 <app-search
   (typing)="filter = $event"
   class="mt-3"
-></app-search>
+
+>
+
+</app-search>
 <app-products
-  [products]="products | filterByName: filter"
+  class="mt-5"
+  [products]="products | filterByName: filter | filterByType: 'chinelo'"
+
 >
 </app-products>
 

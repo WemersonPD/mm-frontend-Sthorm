@@ -6,10 +6,11 @@
     ></i>
     <input
       type="search"
-      class="rounded"
+      class="rounded "
       autofocus
       placeholder="Buscar..."
       (keyup)="debounce.next($event.target.value)"
     >
   </form>
 </div>
+<ng-content></ng-content>

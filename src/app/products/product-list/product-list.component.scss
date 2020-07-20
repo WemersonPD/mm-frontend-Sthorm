@@ -1,6 +1,10 @@
-app-search {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 9999;
+
+
+@media screen and (min-width: 1000px) {
+  app-search {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+  }
 }
