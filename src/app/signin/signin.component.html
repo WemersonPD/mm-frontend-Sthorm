@@ -1,0 +1,47 @@
+<h4 class="text-center mt-3">LOGIN</h4>
+<form
+  (submit)="login()"
+  class="container"
+  [formGroup]="loginForm"
+  >
+  <div class="form-group">
+    <label>Email</label>
+    <input
+      type="email"
+      class="form-control"
+      aria-describedby="emailHelp"
+      placeholder="Digite seu email"
+      formControlName="email"
+      >
+    <app-vmenssage
+      *ngIf="loginForm.get('email').errors?.required && loginForm.get('email').dirty"
+      text="Informe seu email"
+      class="text-danger d-block mt-2"
+    >
+    </app-vmenssage>
+  </div>
+  <div class="form-group">
+    <label>Senha</label>
+    <input
+      type="password"
+      class="form-control"
+      placeholder="Password"
+      formControlName="password"
+      >
+    <app-vmenssage
+      *ngIf="loginForm.get('password').errors?.required && loginForm.get('password').dirty"
+      text="Informe sua senha"
+      class="text-danger d-block mt-2"
+    >
+    </app-vmenssage>
+    <app-vmenssage
+      *ngIf="loginForm.get('password').errors?.minlength && loginForm.get('password').dirty"
+      text="Mínimo de 6 caracteres"
+      class="text-danger d-block mt-2"
+    >
+    </app-vmenssage>
+  </div>
+  <button [disabled]="loginForm.invalid" type="submit" class="btn btn-primary ">LOGIN</button>
+</form>
+
+<p class="mt-2 text-center">Não é inscrito? <strong><a>Insceva-se</a></strong></p>

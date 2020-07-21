@@ -1,0 +1,22 @@
+<h2 class="text-center text-muted my-3" >{{title}}</h2>
+<app-vmenssage
+  *ngIf="!products.length"
+  class="d-flex justify-content-center"
+  text="Desabilitado."
+></app-vmenssage>
+
+
+
+<ngb-carousel class="mx-auto">
+  <ng-template ngbSlide *ngFor="let product of products" class="w-25">
+    <div class="picsum-img-wrapper" >
+      <img [src]="product.urlImage" [alt]="product.name">
+    </div>
+    <div class="carousel-caption">
+      <h4 class="text-light d-none d-md-block">{{product.name | uppercase}}</h4>
+      <h4 class="text-success">FRETE GRÁTIS</h4>
+      <h4 class="">R$: {{product.price}}</h4>
+    </div>
+  </ng-template>
+
+</ngb-carousel>
