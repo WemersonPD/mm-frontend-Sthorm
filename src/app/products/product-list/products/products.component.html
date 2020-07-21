@@ -1,26 +1,22 @@
+<h2 class="text-center text-muted my-3" >{{title}}</h2>
 <app-vmenssage
   *ngIf="!products.length"
   class="d-flex justify-content-center"
-  text="Desculpe, nenhum produto encontrado."
+  text="Desabilitado."
 ></app-vmenssage>
 
-<ol class="list-unstyled">
-  <li *ngFor="let cols of rows" class="row no-gutters">
-    <div *ngFor="let product of cols" class="col-4" appDarkOnHover>
-      <app-card>
-        <app-product
-          [urlImage]="product.urlImage"
-          [title]="product.name"
-          class="card-img-top"
-        ></app-product>
-        <div class="ml-3 text-center text-md-left">
-          <h4 class="text-muted mb-3 d-md-block d-none">{{product.name}}</h4>
-          <h5 class="text-success">FRETE GRÁTIS</h5>
-          <h5><strong>R$: {{product.price}}</strong></h5>
-          <p *ngIf="product.status == true" >Disponível</p>
 
-        </div>
-      </app-card>
+
+<ngb-carousel class="mx-auto">
+  <ng-template ngbSlide *ngFor="let product of products" class="w-25">
+    <div class="picsum-img-wrapper" >
+      <img [src]="product.urlImage" [alt]="product.name">
     </div>
-  </li>
-</ol>
+    <div class="carousel-caption">
+      <h4 class="text-light d-none d-md-block">{{product.name | uppercase}}</h4>
+      <h4 class="text-success">FRETE GRÁTIS</h4>
+      <h4 class="">R$: {{product.price}}</h4>
+    </div>
+  </ng-template>
+
+</ngb-carousel>

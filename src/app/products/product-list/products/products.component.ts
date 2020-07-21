@@ -8,6 +8,7 @@ import { Component, Input, OnChanges, OnInit, SimpleChange, SimpleChanges } from
 })
 export class ProductsComponent implements OnChanges {
   @Input() products: Product[] = [];
+  @Input() title: string;
   public rows: any[] = [];
   constructor() { }
 

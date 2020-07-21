@@ -1,5 +1,4 @@
-import { FilterByType } from './filterByType.pipe';
-
+import { NgbCarouselModule} from '@ng-bootstrap/ng-bootstrap';
 import { DarkOnHoverModule } from './../../shareds/directives/dark-on-hover/dark-on-hover.module';
 import { CardModule } from './../../shareds/components/card/card.module';
 import { NgModule } from '@angular/core';
@@ -11,6 +10,7 @@ import { FilterByName } from './filterByName.pipe';
 import { VmenssageModule } from './../../shareds/components/vmenssage/vmenssage.module';
 import { ProductModule } from './../product/product.module';
 import { SearchComponent } from './search/search.component';
+import { FilterByType } from './filterByType.pipe';
 
 
 @NgModule({
@@ -19,7 +19,7 @@ import { SearchComponent } from './search/search.component';
     ProductsComponent,
     FilterByName,
     SearchComponent,
-    FilterByType
+    FilterByType,
   ],
   imports: [
     CommonModule,
@@ -27,7 +27,7 @@ import { SearchComponent } from './search/search.component';
     VmenssageModule,
     CardModule,
     DarkOnHoverModule,
-
+    NgbCarouselModule
   ]
 })
 export class ProductListModule { }

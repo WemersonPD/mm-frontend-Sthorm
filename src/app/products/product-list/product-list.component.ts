@@ -12,6 +12,7 @@ import { ProductService } from '../product/product.service';
 export class ProductListComponent implements OnInit {
   public products: Product[] = [];
   public filter = '';
+  public types = ['chinelo', 'bolsa', 'conjunto'];
   constructor(private productService: ProductService) {}
   ngOnInit(): void {
     this.productService.getProducts().subscribe((products) => {
