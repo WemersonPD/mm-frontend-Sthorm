@@ -22,7 +22,7 @@ $ npm run build
 
 - Author - Wemerson Patrick De Lima Silva
 - Website - [wemersonpd.github.io](https://wemersonpd.github.io)
-- Linkedin - [linkedin/wemerson-patrick](www.linkedin.com/in/wemerson-patrick)
+- Linkedin - [linkedin/wemerson-patrick](http://www.linkedin.com/in/wemerson-patrick)
 
 ## License
 
