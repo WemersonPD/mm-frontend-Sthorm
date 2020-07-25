@@ -1,4 +1,4 @@
-<h4 class="text-center mt-3">LOGIN</h4>
+<h4 class="text-center my-5">LOGIN</h4>
 <form
   (submit)="login()"
   class="container"
@@ -16,7 +16,7 @@
     <app-vmenssage
       *ngIf="loginForm.get('email').errors?.required && loginForm.get('email').dirty"
       text="Informe seu email"
-      class="text-danger d-block mt-2"
+
     >
     </app-vmenssage>
   </div>
@@ -31,17 +31,26 @@
     <app-vmenssage
       *ngIf="loginForm.get('password').errors?.required && loginForm.get('password').dirty"
       text="Informe sua senha"
-      class="text-danger d-block mt-2"
+
     >
     </app-vmenssage>
     <app-vmenssage
       *ngIf="loginForm.get('password').errors?.minlength && loginForm.get('password').dirty"
       text="Mínimo de 6 caracteres"
-      class="text-danger d-block mt-2"
+
     >
     </app-vmenssage>
   </div>
-  <button [disabled]="loginForm.invalid" type="submit" class="btn btn-primary ">LOGIN</button>
+  <button [disabled]="loginForm.invalid" type="submit" class="btn btn-success">LOGIN</button>
 </form>
 
-<p class="mt-2 text-center">Não é inscrito? <strong><a>Insceva-se</a></strong></p>
+<p class="text-center mt-5">Ainda não é um inscrito?
+  <strong>
+    <a
+      [routerLink]="['signup']"
+      class="text-dark"
+    >
+    Inscreva-se!
+    </a>
+  </strong>
+</p>

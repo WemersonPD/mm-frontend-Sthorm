@@ -1,3 +1,5 @@
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -15,7 +17,9 @@ import { VmenssageModule } from '../shareds/components/vmenssage/vmenssage.modul
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    VmenssageModule
+    VmenssageModule,
+    RouterModule,
+    HttpClientModule
   ]
 })
 export class SignupModule { }
