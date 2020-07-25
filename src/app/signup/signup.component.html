@@ -1,14 +1,13 @@
-<h4 class="text-center">Crie sua conta</h4>
+<h4 class="text-center my-5">Crie sua conta</h4>
 
-<!-- [FormFroup]="loginForm" é para mostrar quem vai controlar meu formulário. -->
-<div class="container">
+
   <form
     [formGroup]="signupForm"
-    class="form mt-4 w-50 h-90 mx-auto "
-
+    class="form container"
+    (submit)="signup()"
   >
     <div class="form-group">
-    <!-- Utiliando o nome que colocamos no formBuilder e sua altentucação. -->
+      <label>Email</label>
       <input
         formControlName="email"
         class="form-control"
@@ -16,7 +15,7 @@
         autofocus
       >
 
-      <!-- Mensagem de erro componentiado. -->
+
       <app-vmenssage
       *ngIf="signupForm.get('email').errors?.required && signupForm.get('email').dirty"
         text="Por favor, informe seu email"
@@ -25,25 +24,29 @@
 
     </div>
     <div class="form-group">
-      <!-- Utiliando o nome que colocamos no formBuilder e sua altentucação. -->
+      <label>Nome de usuário</label>
       <input
         formControlName="userName"
         class="form-control"
-        placeholder="Nome completo"
+        placeholder="Nome de usuário"
 
       >
 
-      <!-- Mensagem de erro componentiado. -->
       <app-vmenssage
       *ngIf="signupForm.get('userName').errors?.required && signupForm.get('userName').dirty"
         text="Por favor, informe seu nome"
       >
       </app-vmenssage>
-
+      <app-vmenssage
+      *ngIf="signupForm.get('userName').errors?.maxlength && signupForm.get('userName').dirty"
+        text="Máximo de 12 caractéres."
+      >
+      </app-vmenssage>
 
     </div>
 
     <div class="form-group">
+      <label>Senha</label>
       <input
         formControlName="password"
         type="password"
@@ -63,6 +66,7 @@
     </div>
 
     <div class="form-group">
+      <label>Confirmação de senha</label>
       <input
         formControlName="confirmPassword"
         type="password"
@@ -78,19 +82,28 @@
       </app-vmenssage>
     </div>
 
-    <!-- Caso tenha algum erro no FormGroup, o botão ficará desabilitado. -->
+
     <button
       [disabled]="signupForm.invalid"
       type="submit"
-      class="btn btn-primary btn-block"
+      class="btn btn-success"
       >
-      signup
+      Registrar
     </button>
+
+    <p class="text-center mt-2">Já é um inscrito?
+      <strong>
+        <a
+          [routerLink]="['']"
+          class="text-dark"
+        >
+        Login!
+        </a>
+      </strong>
+    </p>
 
   </form>
 
-  <p class="text-center pt-3">
-    Not a user? <a>Registre now</a>
-  </p>
 
-</div>
+
+
