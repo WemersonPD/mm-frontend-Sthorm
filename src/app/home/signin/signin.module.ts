@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { SigninComponent } from './signin.component';
-import { VmenssageModule } from './../shareds/components/vmenssage/vmenssage.module';
+import { VmenssageModule } from './../../shareds/components/vmenssage/vmenssage.module';
 
 @NgModule({
   declarations: [SigninComponent],
