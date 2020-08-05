@@ -1,6 +1,8 @@
+import { TokenService } from './../../core/token/token.service';
+import { UserService } from './../../core/user/user.service';
 import { AuthService } from './../../core/auth/auth.service';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -14,6 +16,8 @@ export class SigninComponent implements OnInit {
     private formBuilder: FormBuilder,
     private authService: AuthService,
     private router: Router,
+    private userService: UserService,
+    private tokenService: TokenService
   ) { }
 
   ngOnInit(): void {
@@ -30,9 +34,20 @@ export class SigninComponent implements OnInit {
     this.authService
       .authenticate(email, password)
       .subscribe(
-        () => this.router.navigate(['products']),
+        () => {
+          this.userService.getUser()
+            .subscribe(user => {
+              if ( this.tokenService.hasToken && user.role === 'ADMIN') {
+                this.router.navigate(['admin']);
+              } else {
+                this.router.navigate(['products']);
+              }
+            })
+            .unsubscribe();
+        },
         (err) => console.log(err)
       );
   }
+
 
 }

@@ -3,12 +3,14 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { NewUser } from './new-user';
+import { environment } from '../../../environments/environment';
+
 
 @Injectable({
   providedIn: 'root',
 })
 export class SignupService {
-  public apiSignup = 'http://localhost:3000/auth/signup';
+  public apiSignup = environment.apiUrl + '/auth/signup';
   constructor(private http: HttpClient) {}
 
   signup(
