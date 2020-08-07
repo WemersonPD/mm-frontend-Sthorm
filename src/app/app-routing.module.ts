@@ -1,3 +1,4 @@
+import { PaymentComponent } from './payment/payment.component';
 import { AdminComponent } from './admin/admin.component';
 import { AuthGuard } from './core/auth/auth.guards';
 import { NgModule } from '@angular/core';
@@ -23,6 +24,10 @@ const routes: Routes = [
   {
     path: 'admin',
     component: AdminComponent
+  },
+  {
+    path: 'payment',
+    component: PaymentComponent
   }
 ];
 

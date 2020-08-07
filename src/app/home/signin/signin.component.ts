@@ -6,6 +6,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
+  selector: 'app-payment-andress',
   templateUrl: './signin.component.html',
   styleUrls: ['./signin.component.scss']
 })

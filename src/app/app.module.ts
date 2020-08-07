@@ -10,6 +10,7 @@ import { HeaderModule } from './core/header/header.module';
 import { AdminModule } from './admin/admin.module';
 import { AuthModule } from './core/auth/auth.module';
 import { FooterModule } from './core/footer/footer.module';
+import { PaymentModule } from './payment/payment.module';
 
 
 
@@ -25,7 +26,8 @@ import { FooterModule } from './core/footer/footer.module';
     NgbModule,
     AuthModule,
     FooterModule,
-    AdminModule
+    AdminModule,
+    PaymentModule
   ],
   providers: [],
   bootstrap: [AppComponent],
