@@ -4,6 +4,7 @@ import { PaymentCreditCardModule } from './payment-credit-card/payment-credit-ca
 @NgModule({
   imports: [
     PaymentCreditCardModule
-  ]
+  ],
+  exports: [PaymentCreditCardModule]
 })
 export class PaymentFormsModule {}
