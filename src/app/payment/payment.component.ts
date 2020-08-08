@@ -1,11 +1,14 @@
+import { Product } from './../products/product/products-type/product';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 @Component({
   templateUrl: './payment.component.html',
+  styleUrls: ['./payment.component.scss']
 })
 export class PaymentComponent  implements OnInit{
-  @Input() product: number;
+  public product: Product;
   public paymentForm: FormGroup;
+  public active = 1;
   constructor(
     private formBuilder: FormBuilder,
   ){}
@@ -26,6 +29,12 @@ export class PaymentComponent  implements OnInit{
       }
 
     });
+
+    if (history.state) {
+      this.product = history.state.product[0];
+    }
   }
 
+
 }
+

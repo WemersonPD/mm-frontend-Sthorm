@@ -1,3 +1,4 @@
+import { PaymentFormsModule } from './payment-forms/payment-forms.module';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
@@ -7,6 +8,7 @@ import { PaymentComponent } from './payment.component';
 import { PaymentAndressComponent } from './payment-andress/payment-andress.component';
 import { VmenssageModule } from './../shareds/components/vmenssage/vmenssage.module';
 import { TextMaskModule } from 'angular2-text-mask';
+import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [PaymentComponent, PaymentAndressComponent],
@@ -15,7 +17,9 @@ import { TextMaskModule } from 'angular2-text-mask';
     ReactiveFormsModule,
     CardModule,
     VmenssageModule,
-    TextMaskModule
+    TextMaskModule,
+    NgbNavModule,
+    PaymentFormsModule
   ]
 })
 export class PaymentModule {}

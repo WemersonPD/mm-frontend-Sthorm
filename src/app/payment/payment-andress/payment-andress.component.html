@@ -1,87 +1,90 @@
-<form [formGroup]="andressForm" class="mt-4 row">
-  <div class="form-group col-md-6">
-    <label>Endereço</label>
-    <input
-      type="text"
-      class="form-control"
-      formControlName="street"
-      aria-describedby="endereço"
-      placeholder="Informe seu endereço"
-    >
-    <app-vmenssage
-      text="Por favor, informe seu endereço"
-      *ngIf="andressForm.get('street').errors?.required && andressForm.get('street').dirty"
-    ></app-vmenssage>
-  </div>
-  <div class="form-group col-md-6">
-    <label>Número</label>
-    <input
-      type="text"
-      class="form-control"
-      formControlName="number"
-      aria-describedby="número"
-      placeholder="Número da sua casa"
-    >
-    <app-vmenssage
-      text="Por favor, informe o número de sua rua"
-      *ngIf="andressForm.get('number').errors?.required && andressForm.get('number').dirty"
-    ></app-vmenssage>
-  </div>
-  <div class="form-group col-md-6">
-    <label>Complemento</label>
-    <input
-      type="text"
-      class="form-control"
-      formControlName="complement"
-      aria-describedby="complemento"
-      placeholder="Complemento para sua casa"
-    >
-    <app-vmenssage
-      text="Por favor, informe o complemento para seu endereço"
-      *ngIf="andressForm.get('complement').errors?.required && andressForm.get('complement').dirty"
-    ></app-vmenssage>
-  </div>
-  <div class="form-group col-md-6">
-    <label>CEP</label>
-    <input
-      type="text"
-      class="form-control"
-      formControlName="zipCode"
-      aria-describedby="CEP"
-      placeholder="Informe o seu CEP"
-    >
-    <app-vmenssage
-      text="Por favor, informe o seu CEP"
-      *ngIf="andressForm.get('zipCode').errors?.required && andressForm.get('zipCode').dirty"
-    ></app-vmenssage>
-  </div>
-  <div class="form-group col-md-6">
-    <label>Estado</label>
-    <input
-      type="text"
-      class="form-control"
-      formControlName="state"
-      aria-describedby="estado"
-      placeholder="Informe seu estado"
-    >
-    <app-vmenssage
-      text="Por favor, informe seu estado"
-      *ngIf="andressForm.get('state').errors?.required && andressForm.get('state').dirty"
-    ></app-vmenssage>
-  </div>
-  <div class="form-group col-md-6">
-    <label>Cidade</label>
-    <input
-      type="text"
-      class="form-control"
-      formControlName="city"
-      aria-describedby="Cidade"
-      placeholder="Informe sua cidade"
-    >
-    <app-vmenssage
-      text="Por favor, informe sua cidade"
-      *ngIf="andressForm.get('city').errors?.required && andressForm.get('city').dirty"
-    ></app-vmenssage>
-  </div>
-  <button type="submit" class="btn btn-success mt-2 ml-3">Salvar endereço</button>
-</form>
+<app-card title="ADICIONAR ENDEREÇO">
+
+  <form [formGroup]="andressForm" class="mt-4 row">
+    <div class="form-group col-md-6">
+      <label>Endereço</label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="street"
+        aria-describedby="endereço"
+        placeholder="Informe seu endereço"
+      >
+      <app-vmenssage
+        text="Por favor, informe seu endereço"
+        *ngIf="andressForm.get('street').errors?.required && andressForm.get('street').dirty"
+      ></app-vmenssage>
+    </div>
+    <div class="form-group col-md-6">
+      <label>Número</label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="number"
+        aria-describedby="número"
+        placeholder="Número da sua casa"
+      >
+      <app-vmenssage
+        text="Por favor, informe o número de sua rua"
+        *ngIf="andressForm.get('number').errors?.required && andressForm.get('number').dirty"
+      ></app-vmenssage>
+    </div>
+    <div class="form-group col-md-6">
+      <label>Complemento</label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="complement"
+        aria-describedby="complemento"
+        placeholder="Complemento para sua casa"
+      >
+      <app-vmenssage
+        text="Por favor, informe o complemento para seu endereço"
+        *ngIf="andressForm.get('complement').errors?.required && andressForm.get('complement').dirty"
+      ></app-vmenssage>
+    </div>
+    <div class="form-group col-md-6">
+      <label>CEP</label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="zipCode"
+        aria-describedby="CEP"
+        placeholder="Informe o seu CEP"
+      >
+      <app-vmenssage
+        text="Por favor, informe o seu CEP"
+        *ngIf="andressForm.get('zipCode').errors?.required && andressForm.get('zipCode').dirty"
+      ></app-vmenssage>
+    </div>
+    <div class="form-group col-md-6">
+      <label>Estado</label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="state"
+        aria-describedby="estado"
+        placeholder="Informe seu estado"
+      >
+      <app-vmenssage
+        text="Por favor, informe seu estado"
+        *ngIf="andressForm.get('state').errors?.required && andressForm.get('state').dirty"
+      ></app-vmenssage>
+    </div>
+    <div class="form-group col-md-6">
+      <label>Cidade</label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="city"
+        aria-describedby="Cidade"
+        placeholder="Informe sua cidade"
+      >
+      <app-vmenssage
+        text="Por favor, informe sua cidade"
+        *ngIf="andressForm.get('city').errors?.required && andressForm.get('city').dirty"
+      ></app-vmenssage>
+    </div>
+    <button type="submit" class="btn btn-success mt-2 ml-3">Salvar endereço</button>
+  </form>
+</app-card>

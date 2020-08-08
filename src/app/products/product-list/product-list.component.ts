@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 
@@ -13,10 +14,14 @@ export class ProductListComponent implements OnInit {
   public products: Product[] = [];
   public filter = '';
   public types = ['chinelo', 'bolsa', 'conjunto'];
-  constructor(private productService: ProductService) {}
+  constructor(
+    private productService: ProductService,
+    private router: Router,
+  ) { }
   ngOnInit(): void {
     this.productService.getProducts().subscribe((products) => {
       this.products = products.products;
     });
   }
+
 }
