@@ -4,9 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import {
   AbstractControl,
   FormBuilder,
-  FormControl,
   FormGroup,
-  ValidationErrors,
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -46,6 +44,6 @@ export class SignupComponent implements OnInit {
     const newUser = this.signupForm.getRawValue() as NewUser;
     const { email, userName, password, confirmPassword} = newUser;
     this.signupService.signup(email, userName, password, confirmPassword)
-      .subscribe(() => this.router.navigate(['']))
+      .subscribe(() => this.router.navigate(['']));
   }
 }

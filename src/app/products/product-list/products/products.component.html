@@ -16,6 +16,7 @@
       <h4 class="text-light d-none d-md-block">{{product.name | uppercase}}</h4>
       <h4 class="text-success">FRETE GRÁTIS</h4>
       <h4 class="">R$: {{product.price}}</h4>
+      <button (click)="exportProduct(product)" class="btn btn-success mt-2">Comprar</button>
     </div>
   </ng-template>
 

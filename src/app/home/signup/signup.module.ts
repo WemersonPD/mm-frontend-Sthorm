@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { SignupComponent } from './signup.component';
-import { VmenssageModule } from '../shareds/components/vmenssage/vmenssage.module';
+import { VmenssageModule } from '../../shareds/components/vmenssage/vmenssage.module';
 
 
 

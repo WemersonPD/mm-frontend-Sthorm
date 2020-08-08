@@ -1,15 +1,34 @@
-import { SignupComponent } from './signup/signup.component';
+import { PaymentComponent } from './payment/payment.component';
+import { AdminComponent } from './admin/admin.component';
 import { AuthGuard } from './core/auth/auth.guards';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { ProductListComponent } from './products/product-list/product-list.component';
-import { SigninComponent } from './signin/signin.component';
 
 const routes: Routes = [
-  { path: '', component: SigninComponent, canActivate: [AuthGuard] },
-  { path: 'products', component: ProductListComponent },
-  { path: 'signup', component: SignupComponent}
+  {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'home'
+  },
+  {
+    path: 'home',
+    loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
+  },
+  {
+    path: 'products',
+    component: ProductListComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'admin',
+    component: AdminComponent
+  },
+  {
+    path: 'payment',
+    component: PaymentComponent
+  }
 ];
 
 @NgModule({

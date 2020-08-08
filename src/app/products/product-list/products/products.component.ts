@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Product } from './../../product/products-type/product';
 import { Component, Input, OnChanges, OnInit, SimpleChange, SimpleChanges } from '@angular/core';
 
@@ -10,7 +11,9 @@ export class ProductsComponent implements OnChanges {
   @Input() products: Product[] = [];
   @Input() title: string;
   public rows: any[] = [];
-  constructor() { }
+  constructor(
+    private router: Router,
+  ) { }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.products) { this.rows = this.groupColums(this.products); }
@@ -22,6 +25,10 @@ export class ProductsComponent implements OnChanges {
       newRows.push(products.slice(index, index + 3));
     }
     return newRows;
+  }
+
+  exportProduct(product: Product): void {
+    this.router.navigate(['payment'], {state: {product: [product]}});
   }
 
 }
