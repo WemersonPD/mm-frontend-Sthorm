@@ -85,6 +85,6 @@
         *ngIf="andressForm.get('city').errors?.required && andressForm.get('city').dirty"
       ></app-vmenssage>
     </div>
-    <button type="submit" class="btn btn-success mt-2 ml-3">Salvar endereço</button>
+    <button type="submit" class="btn btn-success col-12 mt-2" [disabled]="andressForm.invalid">Salvar endereço</button>
   </form>
 </app-card>

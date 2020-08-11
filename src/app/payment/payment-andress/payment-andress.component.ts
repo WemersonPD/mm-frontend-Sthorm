@@ -8,7 +8,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PaymentAndressComponent implements OnInit {
   public andressForm: FormGroup;
-  public mask = ['(', /[1-9]/, /\d/, ')', ' ', /\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
   constructor(
     private formBuilder: FormBuilder,
   ) { }

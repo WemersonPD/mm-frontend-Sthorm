@@ -1,3 +1,5 @@
+import { RouterModule } from '@angular/router';
+import { NgxMaskModule } from 'ngx-mask';
 import { PaymentFormsModule } from './payment-forms/payment-forms.module';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -7,7 +9,7 @@ import { CardModule } from './../shareds/components/card/card.module';
 import { PaymentComponent } from './payment.component';
 import { PaymentAndressComponent } from './payment-andress/payment-andress.component';
 import { VmenssageModule } from './../shareds/components/vmenssage/vmenssage.module';
-import { TextMaskModule } from 'angular2-text-mask';
+// import { TextMaskModule } from 'angular2-text-mask';
 import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
@@ -17,9 +19,9 @@ import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
     ReactiveFormsModule,
     CardModule,
     VmenssageModule,
-    TextMaskModule,
     NgbNavModule,
-    PaymentFormsModule
+    PaymentFormsModule,
+    RouterModule
   ]
 })
 export class PaymentModule {}
