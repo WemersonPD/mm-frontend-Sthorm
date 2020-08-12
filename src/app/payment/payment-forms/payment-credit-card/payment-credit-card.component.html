@@ -1,5 +1,5 @@
 
-<form [formGroup]="creditCardForm" class="mt-4 row">
+<form [formGroup]="creditCardForm" class="mt-4 row" (submit)="sendNewCreditCard(creditCardForm)">
   <div class="form-group col-md-6">
     <label>Número do cartão</label>
     <input
@@ -21,7 +21,7 @@
       <option *ngFor="let month of getMonths()" [value]="month">{{month}}</option>
     </select>
     <app-vmenssage
-        text="Mês de expireção"
+        text="Mês de expiração"
         *ngIf="creditCardForm.get('monthExpiration').errors?.required"
       ></app-vmenssage>
   </div>
@@ -31,7 +31,7 @@
       <option *ngFor="let year of getYears()" [value]="year">{{year}}</option>
     </select>
     <app-vmenssage
-        text="Ano de expireção"
+        text="Ano de expiração"
         *ngIf="creditCardForm.get('yearExpiration').errors?.required"
       ></app-vmenssage>
   </div>
@@ -72,7 +72,7 @@
       formControlName="securityCode"
       aria-describedby="cvv"
       placeholder="CVV"
-      mask="0000"
+      mask="000"
     >
     <app-vmenssage
         text="CVV inválido"

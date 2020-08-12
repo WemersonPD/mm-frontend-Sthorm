@@ -1,5 +1,6 @@
+import { CreditCard } from './credit-card';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-payment-credit-card',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PaymentCreditCardComponent implements OnInit {
   public creditCardForm: FormGroup;
+  @Output() sendCreditCardForm = new EventEmitter();
   constructor(private formBuilder: FormBuilder) {}
   ngOnInit(): void {
     this.creditCardForm = this.formBuilder.group({
@@ -43,5 +45,10 @@ export class PaymentCreditCardComponent implements OnInit {
       }
     }
     return months;
+  }
+
+  sendNewCreditCard(creditCardForm: FormGroup): void {
+    const creditCard = creditCardForm.getRawValue() as CreditCard;
+    this.sendCreditCardForm.emit(creditCard);
   }
 }

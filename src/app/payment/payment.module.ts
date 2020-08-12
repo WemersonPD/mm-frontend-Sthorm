@@ -1,3 +1,5 @@
+import { PaymentService } from './payment.service';
+import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { NgxMaskModule } from 'ngx-mask';
 import { PaymentFormsModule } from './payment-forms/payment-forms.module';
@@ -21,7 +23,8 @@ import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
     VmenssageModule,
     NgbNavModule,
     PaymentFormsModule,
-    RouterModule
-  ]
+    RouterModule,
+    HttpClientModule
+  ],
 })
 export class PaymentModule {}

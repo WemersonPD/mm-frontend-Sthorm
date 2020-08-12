@@ -1,12 +1,12 @@
 <main class="row bg-light mx-auto">
     <div class="col-md-6">
-      <app-payment-andress class="col-12 mb-3"></app-payment-andress>
+      <app-payment-andress class="col-12 mb-3" (sendAndresForm)="addAndress($event)"></app-payment-andress>
       <app-card class="col-12 mb-3" title="FORMA DE PAGAMENTO">
         <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
           <li [ngbNavItem]="1" >
             <a ngbNavLink>Cartão de crédito</a>
-            <ng-template ngbNavContent >
-              <app-payment-credit-card></app-payment-credit-card>
+            <ng-template ngbNavContent>
+              <app-payment-credit-card (sendCreditCardForm)="addCreditCard($event)"></app-payment-credit-card>
             </ng-template>
           </li>
           <li [ngbNavItem]="2">
@@ -20,10 +20,18 @@
       </app-card>
     </div>
     <div class="col-md-4">
-      <app-card class="col-12 mb-3 img-fluid" title="RESUMO DO PEDIDO" [src]="product?.urlImage">
+      <app-card
+        class="col-12 mb-3 img-fluid"
+        title="RESUMO DO PEDIDO"
+        [src]="product?.urlImage"
+        >
         <h5>{{product?.name}}</h5>
         <i class="fa fa-money text-success" aria-hidden="true"></i>
         <strong> {{product?.price}}</strong>
+        <form [formGroup]="paymentForm" (submit)="createNewPaymantCreditCard()">
+          <button class="btn btn-success col-12 mt-3" >Finalizar</button>
+
+        </form>
       </app-card>
     </div>
 </main>

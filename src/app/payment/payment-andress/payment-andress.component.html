@@ -1,6 +1,6 @@
 <app-card title="ADICIONAR ENDEREÇO">
 
-  <form [formGroup]="andressForm" class="mt-4 row">
+  <form [formGroup]="andressForm" class="mt-4 row" (submit)="sendNewAndress(andressForm)">
     <div class="form-group col-md-6">
       <label>Endereço</label>
       <input
