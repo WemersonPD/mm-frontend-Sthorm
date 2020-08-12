@@ -7,4 +7,5 @@ export interface CreditCard {
   cpf: string;
   email: string;
   phoneNumber: string;
+  brand: string;
 }

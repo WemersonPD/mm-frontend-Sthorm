@@ -1,37 +1,33 @@
+import { ReturnPaymentCreditCard } from './return-create-payment-credit-card';
+import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import * as creditCardType from 'credit-card-type';
+
 import { TokenPayload } from './../core/user/token-payload';
 import { UserService } from './../core/user/user.service';
 import { PaymentService } from './payment.service';
-import { ReturnPaymentCreditCard } from './return-create-payment-credit-card';
 import { CreditCard } from './payment-forms/payment-credit-card/credit-card';
 import { Andress } from './payment-andress/andress';
-import { Router } from '@angular/router';
 import { Product } from './../products/product/products-type/product';
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
 import { CreatePaymentCreditCard } from './create-payment-credit-card';
 
 @Component({
   templateUrl: './payment.component.html',
-  styleUrls: ['./payment.component.scss']
+  styleUrls: ['./payment.component.scss'],
 })
-export class PaymentComponent  implements OnInit{
+export class PaymentComponent implements OnInit{
   public product: Product;
-  public paymentForm: FormGroup;
   public active = 1;
   public andress: Andress;
   public creditCard: CreditCard;
   public returnPaymentCreditCard: ReturnPaymentCreditCard;
   public user: TokenPayload;
   constructor(
-    private formBuilder: FormBuilder,
     private router: Router,
     private paymentService: PaymentService,
-    private userService: UserService,
-  ){}
+    private userService: UserService
+  ) {}
   ngOnInit(): void {
-    this.paymentForm = this.formBuilder.group({
-      cardNumber: []
-    });
     try {
       this.product = history.state.product[0];
     } catch {
@@ -39,17 +35,23 @@ export class PaymentComponent  implements OnInit{
       this.router.navigate(['']);
     }
     this.userService.getUser()
-      .subscribe(user => this.user = user);
+    .subscribe((user) => (this.user = user));
   }
-
+  validationForms(): boolean {
+    if (this.andress !== undefined && this.creditCard !== undefined) {
+      return false;
+    }
+    return true;
+  }
   addAndress(andress: Andress): void {
     this.andress = andress;
-    console.log(this.andress);
   }
   addCreditCard(creditCard: CreditCard): void {
     this.creditCard = creditCard;
   }
-
+  getCreditCardBrand(cardNumber: string): string {
+    return creditCardType(cardNumber)[0].type.toUpperCase();
+  }
   generateMerchantOrderId(): string {
     const year = new Date().getFullYear();
     const day = new Date().getDate();
@@ -83,21 +85,19 @@ export class PaymentComponent  implements OnInit{
         softDescriptor: 'Banzeh',
         type: 'CreditCard',
         creditCard: {
-          brand: 'VISA',
+          brand: this.getCreditCardBrand(this.creditCard.cardNumber),
           cardNumber: this.creditCard.cardNumber,
           holder: this.creditCard.holder,
           expirationDate: `${this.creditCard.monthExpiration}/${this.creditCard.yearExpiration}`,
-          securityCode: this.creditCard.securityCode
+          securityCode: this.creditCard.securityCode,
         },
-      }
+      },
     };
     this.paymentService.creditCard(payment).subscribe(
-      returnPayment => {
+      (returnPayment) => {
         this.returnPaymentCreditCard = returnPayment;
-        console.log(this.returnPaymentCreditCard);
       },
-      err => console.log(err)
+      (err) => console.log(err)
     );
   }
 }
-

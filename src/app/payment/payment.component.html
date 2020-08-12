@@ -9,12 +9,12 @@
               <app-payment-credit-card (sendCreditCardForm)="addCreditCard($event)"></app-payment-credit-card>
             </ng-template>
           </li>
-          <li [ngbNavItem]="2">
+          <!-- <li [ngbNavItem]="2">
             <a ngbNavLink>Boleto</a>
             <ng-template ngbNavContent>
               <p>BOLETO</p>
             </ng-template>
-          </li>
+          </li> -->
         </ul>
         <div [ngbNavOutlet]="nav" class="mt-2"></div>
       </app-card>
@@ -28,10 +28,15 @@
         <h5>{{product?.name}}</h5>
         <i class="fa fa-money text-success" aria-hidden="true"></i>
         <strong> {{product?.price}}</strong>
-        <form [formGroup]="paymentForm" (submit)="createNewPaymantCreditCard()">
-          <button class="btn btn-success col-12 mt-3" >Finalizar</button>
 
-        </form>
+          <button
+            class="btn btn-success col-12 mt-3"
+            (click)="createNewPaymantCreditCard()"
+            [disabled]="validationForms()"
+            >
+            Finalizar
+          </button>
+
       </app-card>
     </div>
 </main>

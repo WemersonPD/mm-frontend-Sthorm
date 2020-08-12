@@ -1,6 +1,7 @@
-import { CreditCard } from './credit-card';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+
+import { CreditCard } from './credit-card';
 
 @Component({
   selector: 'app-payment-credit-card',
@@ -19,12 +20,11 @@ export class PaymentCreditCardComponent implements OnInit {
       securityCode: ['', Validators.required],
       cpf: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      phoneNumber: ['', Validators.required]
+      phoneNumber: ['', Validators.required],
     });
 
   }
-
-  public getYears(): number[]{
+  getYears(): number[]{
     let currentYear = new Date().getFullYear();
     const years = [];
     for (currentYear; currentYear < new Date().getFullYear() + 30; currentYear++){
@@ -33,7 +33,7 @@ export class PaymentCreditCardComponent implements OnInit {
     return years;
   }
 
-  public getMonths(): number[] {
+  getMonths(): number[] {
     let currentMonthNumber = 1;
     const months = [];
     for (currentMonthNumber; currentMonthNumber <= 12; currentMonthNumber++){

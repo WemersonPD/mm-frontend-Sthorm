@@ -1,6 +1,7 @@
-import { Andress } from './andress';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+
+import { Andress } from './andress';
 
 @Component({
   selector: 'app-payment-andress',
@@ -13,7 +14,6 @@ export class PaymentAndressComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
   ) { }
-
   ngOnInit(): void {
     this.andressForm = this.formBuilder.group({
       street: ['', Validators.required],
