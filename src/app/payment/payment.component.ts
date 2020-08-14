@@ -62,7 +62,7 @@ export class PaymentComponent implements OnInit{
   }
   createNewPaymantCreditCard(): void {
     const payment: CreatePaymentCreditCard = {
-      product: this.product,
+      productName: this.product.name,
       ownerEmail: this.user.email,
       customer: {
         name: this.user.name,
