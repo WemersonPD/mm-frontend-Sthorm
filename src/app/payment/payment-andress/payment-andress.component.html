@@ -1,6 +1,6 @@
 <app-card title="ADICIONAR ENDEREÇO">
 
-  <form [formGroup]="andressForm" class="mt-4 row">
+  <form [formGroup]="andressForm" class="mt-4 row" (submit)="sendNewAndress(andressForm)">
     <div class="form-group col-md-6">
       <label>Endereço</label>
       <input
@@ -85,6 +85,6 @@
         *ngIf="andressForm.get('city').errors?.required && andressForm.get('city').dirty"
       ></app-vmenssage>
     </div>
-    <button type="submit" class="btn btn-success mt-2 ml-3">Salvar endereço</button>
+    <button type="submit" class="btn btn-success col-12 mt-2" [disabled]="andressForm.invalid">Salvar endereço</button>
   </form>
 </app-card>

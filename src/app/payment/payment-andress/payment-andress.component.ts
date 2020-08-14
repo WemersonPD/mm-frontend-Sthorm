@@ -1,5 +1,7 @@
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+
+import { Andress } from './andress';
 
 @Component({
   selector: 'app-payment-andress',
@@ -8,11 +10,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PaymentAndressComponent implements OnInit {
   public andressForm: FormGroup;
-  public mask = ['(', /[1-9]/, /\d/, ')', ' ', /\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
+  @Output() sendAndresForm = new EventEmitter<Andress>();
   constructor(
     private formBuilder: FormBuilder,
   ) { }
-
   ngOnInit(): void {
     this.andressForm = this.formBuilder.group({
       street: ['', Validators.required],
@@ -23,5 +24,8 @@ export class PaymentAndressComponent implements OnInit {
       state: ['', Validators.required],
     });
   }
-
+  sendNewAndress(andressForm: FormGroup): void {
+    const andress = andressForm.getRawValue() as Andress;
+    this.sendAndresForm.emit(andress);
+  }
 }

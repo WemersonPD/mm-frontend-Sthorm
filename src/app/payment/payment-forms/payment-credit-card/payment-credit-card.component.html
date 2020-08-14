@@ -1,1 +1,116 @@
-<p>Credit card work!</p>
+
+<form [formGroup]="creditCardForm" class="mt-4 row" (submit)="sendNewCreditCard(creditCardForm)">
+  <div class="form-group col-md-6">
+    <label>Número do cartão</label>
+    <input
+      type="text"
+      class="form-control"
+      formControlName="cardNumber"
+      aria-describedby="Número do cartão"
+      placeholder="Número do cartão"
+      mask="0000 0000 0000 0000"
+    >
+    <app-vmenssage
+        text="Por favor, informe o número do cartão"
+        *ngIf="creditCardForm.get('cardNumber').errors?.required && creditCardForm.get('cardNumber').dirty"
+      ></app-vmenssage>
+  </div>
+  <div class="form-group col-6 col-md-3">
+    <label >Mês</label>
+    <select class="form-control" formControlName="monthExpiration">
+      <option *ngFor="let month of getMonths()" [value]="month">{{month}}</option>
+    </select>
+    <app-vmenssage
+        text="Mês de expiração"
+        *ngIf="creditCardForm.get('monthExpiration').errors?.required"
+      ></app-vmenssage>
+  </div>
+  <div class="form-group col-6 col-md-3">
+    <label>Ano</label>
+    <select class="form-control"  formControlName="yearExpiration">
+      <option *ngFor="let year of getYears()" [value]="year">{{year}}</option>
+    </select>
+    <app-vmenssage
+        text="Ano de expiração"
+        *ngIf="creditCardForm.get('yearExpiration').errors?.required"
+      ></app-vmenssage>
+  </div>
+  <div class="form-group col-md-6">
+    <label>Nome do cartão</label>
+    <input
+      type="text"
+      class="form-control"
+      aria-describedby="Nome do cartão"
+      placeholder="Nome do cartão"
+      formControlName="holder"
+    >
+    <app-vmenssage
+        text="Por favor, informe seu nome do cartão"
+        *ngIf="creditCardForm.get('holder').errors?.required && creditCardForm.get('holder').dirty"
+      ></app-vmenssage>
+  </div>
+  <div class="form-group col-md-3 col-6">
+    <label>CPF</label>
+    <input
+      type="text"
+      class="form-control"
+      formControlName="cpf"
+      aria-describedby="CPF"
+      placeholder="CPF"
+      mask="000.000.000-00"
+    >
+    <app-vmenssage
+        text="CPF inválido"
+        *ngIf="creditCardForm.get('cpf').errors?.required && creditCardForm.get('cpf').dirty"
+      ></app-vmenssage>
+  </div>
+  <div class="form-group col-6 col-md-3">
+    <label>CVV</label>
+    <input
+      type="text"
+      class="form-control"
+      formControlName="securityCode"
+      aria-describedby="cvv"
+      placeholder="CVV"
+      mask="000"
+    >
+    <app-vmenssage
+        text="CVV inválido"
+        *ngIf="creditCardForm.get('securityCode').errors?.required && creditCardForm.get('securityCode').dirty"
+      ></app-vmenssage>
+  </div>
+  <div class="form-group col-md-6">
+    <label>Email</label>
+    <input
+      type="text"
+      class="form-control"
+      formControlName="email"
+      aria-describedby="Email"
+      placeholder="Email"
+    >
+    <app-vmenssage
+        text="Por favor, informe seu email"
+        *ngIf="creditCardForm.get('email').errors?.required && creditCardForm.get('email').dirty"
+      ></app-vmenssage>
+      <app-vmenssage
+        text="Email inválido"
+        *ngIf="creditCardForm.get('email').errors?.email && creditCardForm.get('email').dirty"
+      ></app-vmenssage>
+  </div>
+  <div class="form-group col-md-6">
+    <label>Telefone</label>
+    <input
+      type="text"
+      class="form-control"
+      formControlName="phoneNumber"
+      aria-describedby="Telefone"
+      placeholder="Telefone"
+      mask="(00) 00000-0000"
+    >
+    <app-vmenssage
+        text="Por favor, informe seu telefone"
+        *ngIf="creditCardForm.get('phoneNumber').errors?.required && creditCardForm.get('phoneNumber').dirty"
+      ></app-vmenssage>
+  </div>
+  <button [disabled]="creditCardForm.invalid" class="btn btn-success col-12">Salvar forma de pagamento</button>
+</form>

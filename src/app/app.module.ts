@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgxMaskModule } from 'ngx-mask';
 
 import { ProductsModule } from './products/products.module';
 import { CardModule } from './shareds/components/card/card.module';
@@ -27,7 +28,8 @@ import { PaymentModule } from './payment/payment.module';
     AuthModule,
     FooterModule,
     AdminModule,
-    PaymentModule
+    PaymentModule,
+    NgxMaskModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent],
