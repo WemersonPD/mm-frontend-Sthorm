@@ -62,12 +62,23 @@ export class PaymentComponent implements OnInit{
   }
   createNewPaymantCreditCard(): void {
     const payment: CreatePaymentCreditCard = {
+      product: this.product,
+      ownerEmail: this.user.email,
       customer: {
         name: this.user.name,
         email: this.user.email,
         identity: this.creditCard.cpf,
         identityType: 'CPF',
         deliveryAddress: {
+          city: this.andress.city,
+          state: this.andress.state,
+          complement: this.andress.complement,
+          country: 'Brasil',
+          number: this.andress.number,
+          street: this.andress.street,
+          zipCode: this.andress.zipCode,
+        },
+        Address: {
           city: this.andress.city,
           state: this.andress.state,
           complement: this.andress.complement,
@@ -96,6 +107,7 @@ export class PaymentComponent implements OnInit{
     this.paymentService.creditCard(payment).subscribe(
       (returnPayment) => {
         this.returnPaymentCreditCard = returnPayment;
+        console.log(this.returnPaymentCreditCard);
       },
       (err) => console.log(err)
     );

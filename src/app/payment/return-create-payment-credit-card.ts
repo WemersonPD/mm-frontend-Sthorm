@@ -1,4 +1,6 @@
+import { Product } from '../products/product/products-type/product';
 export interface ReturnPaymentCreditCard {
+  product: Product;
     merchantOrderId: string;
     customer: {
       name: string;
