@@ -1,0 +1,10 @@
+<app-card title="Seus pedidos" class="container">
+  <app-order-history
+    *ngFor="let order of orders"
+    [urlImg]="order.urlImage"
+    [productName]="order.productName"
+    [amount]="order.price"
+    status="Aprovado"
+  >
+  </app-order-history>
+</app-card>

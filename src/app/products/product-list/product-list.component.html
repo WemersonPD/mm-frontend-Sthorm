@@ -1,0 +1,18 @@
+
+<app-search
+  (typing)="filter = $event"
+  class="mt-3"
+
+>
+</app-search>
+<div class="row">
+  <app-products
+    *ngFor="let type of types"
+    [title]="type + 'S' | uppercase"
+    class="mt-5"
+    [products]="products | filterByName: filter | filterByType: type"
+    class="col-sm-6 container mt-md-5"
+  >
+  </app-products>
+
+</div>

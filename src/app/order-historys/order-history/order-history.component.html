@@ -1,0 +1,16 @@
+<div class="card w-75">
+  <div class="card-body row d-flex align-items-center">
+    <img [src]="urlImg" [alt]="productName" class="img-fluid col-3">
+    <div class="col-6 ">
+        <h5 class="card-text">{{productName}}</h5>
+        <p class="card-text text-danger">R$ {{amount}}</p>
+        <p class="card-text text-success">Status: {{status}}</p>
+    </div>
+    <div class="col-3 ">
+      <button class="btn btn-danger w-100">
+        Cancelar
+      </button>
+    </div>
+  </div>
+</div>
+
