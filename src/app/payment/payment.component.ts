@@ -64,6 +64,7 @@ export class PaymentComponent implements OnInit{
     const payment: CreatePaymentCreditCard = {
       productName: this.product.name,
       ownerEmail: this.user.email,
+      urlImage: this.product.urlImage,
       customer: {
         name: this.user.name,
         email: this.user.email,
@@ -107,7 +108,7 @@ export class PaymentComponent implements OnInit{
     this.paymentService.creditCard(payment).subscribe(
       (returnPayment) => {
         this.returnPaymentCreditCard = returnPayment;
-        console.log(this.returnPaymentCreditCard);
+        this.router.navigate(['order-history']);
       },
       (err) => console.log(err)
     );

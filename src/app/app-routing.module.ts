@@ -5,7 +5,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { ProductListComponent } from './products/product-list/product-list.component';
-import { OrderHistoryComponent } from './order-historys/order-history/order-history.component';
+import { OrderHistoryListComponent } from './order-historys/order-history-list/order-history-list.component';
 
 const routes: Routes = [
   {
@@ -34,7 +34,7 @@ const routes: Routes = [
   },
   {
     path: 'order-history',
-    component: OrderHistoryComponent,
+    component: OrderHistoryListComponent,
     canActivate: [AuthGuard],
   }
 ];

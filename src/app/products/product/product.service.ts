@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 
 import { Products } from './products-type/products';
 import { environment } from '../../../environments/environment';
+import { Product } from './products-type/product';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,11 @@ export class ProductService {
     private http: HttpClient,
   ) { }
 
-  public getProducts(): Observable<Products> {
-    return this.http.get<Products>(`${this.apiProducts}/getProducts`);
+  getProducts(): Observable<Products> {
+    return this.http.get<Products>(`${this.apiProducts}`);
+  }
+  getProductByName(productName: string): Observable<Product[]> {
+    const productNameRefatoring = productName.replace(/ /g, '%20');
+    return this.http.get<Product[]>(`${this.apiProducts}/${productNameRefatoring}`);
   }
 }

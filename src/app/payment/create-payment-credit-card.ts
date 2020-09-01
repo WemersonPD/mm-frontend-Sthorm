@@ -1,6 +1,7 @@
 import { Product } from './../products/product/products-type/product';
 export interface CreatePaymentCreditCard {
   productName: string;
+  urlImage: string;
   ownerEmail: string;
   customer: {
     name: string,
