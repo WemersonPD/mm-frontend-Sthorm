@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:3000',
+  apiUrl: 'http://192.168.0.108:3000',
   merchantId: '155eddd1-9c76-45e6-ba76-30a5c8df60f8'
 };
 

@@ -9,7 +9,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ProductComponent implements OnInit {
   @Input() title: string;
   @Input() urlImage: string;
-  public products: Product[];
+
   constructor(
   ) { }
 

@@ -1,3 +1,5 @@
+import { OrderHistoryListModule } from './order-historys/order-history-list/order-history-list.module';
+import { OrderHistoryModule } from './order-historys/order-history/order-history.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
@@ -29,7 +31,9 @@ import { PaymentModule } from './payment/payment.module';
     FooterModule,
     AdminModule,
     PaymentModule,
-    NgxMaskModule.forRoot()
+    NgxMaskModule.forRoot(),
+    OrderHistoryModule,
+    OrderHistoryListModule
   ],
   providers: [],
   bootstrap: [AppComponent],
